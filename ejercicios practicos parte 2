@@ -1,0 +1,25 @@
+ const invertirCadena = (cadena)=>{
+            let nuevaCadena = '';
+            let longitud = cadena.length;
+            try{
+                if(typeof cadena !== 'string'){
+                    throw new Error('Valores ingresados no son cadenas');
+                }
+
+                while(longitud >= 0){
+                nuevaCadena += cadena.substring(longitud -1, longitud);
+                longitud--;
+            }
+
+            return nuevaCadena;
+
+            }catch(error){
+                console.log(`se ha producido el siguiente ${error}`);
+            }
+            
+        }
+
+        console.log(invertirCadena("Hola Mundo"));
+        
+        
+        
