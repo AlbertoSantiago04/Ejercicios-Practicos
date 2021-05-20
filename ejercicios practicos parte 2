@@ -1,3 +1,5 @@
+ 
+ --------------------------------EJERCICIO 5-----------------------------------
  const invertirCadena = (cadena)=>{
             let nuevaCadena = '';
             let longitud = cadena.length;
@@ -21,5 +23,29 @@
 
         console.log(invertirCadena("Hola Mundo"));
         
+        -------------------------EJERCICIO 6----------------------------------
+        const contarPalabras = (texto, palabra) => {
+            let contador = 0;
+            try {
+                if (typeof texto !== 'string' || typeof palabra !== 'string') {
+                    throw new Error('Los valores ingresados no son cadenas de texto');
+                }
+
+                let arrayCadena = texto.split(' ');
+
+                for (let elemento of arrayCadena) {
+                    if (palabra === elemento) {
+                        contador++;
+                    }
+                }
+
+                return contador;
+
+            } catch (error) {
+                console.log('Se ha producido el siguiente error');
+            }
+        }
+
+        //console.log(contarPalabras('hola mundo adios mundo','mundo'));
         
         
