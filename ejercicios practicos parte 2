@@ -48,4 +48,29 @@
 
         //console.log(contarPalabras('hola mundo adios mundo','mundo'));
         
+        --------------------------------EJERCICIO 7-------------------------------------
+        const isPalindromo = (cadena)=>{
+            let cadenaNueva = '';
+            try{
+                if(typeof cadena !== 'string'){
+                    throw new Error(`El valor ingresado no es una cadena de texto`);
+                }
+
+                for(let i = cadena.length -1; i >= 0; i--){
+                    cadenaNueva += cadena[i].toLowerCase();
+                }
+
+                if(cadena.toLowerCase() === cadenaNueva){
+                    return true;
+                }else{
+                    return false;
+                }
+
+            }catch(error){
+                console.log(`Se ha creado el siguiente ${error}`);
+            }
+        }
+
+        console.log(isPalindromo('sometemos'));
+        
         
