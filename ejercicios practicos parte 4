@@ -1,0 +1,72 @@
+//------------------Ejercicio 12-------------------
+        const esPrimo = (numero)=>{
+            try{
+                if(typeof numero !== 'number'){
+                    throw new Error("El valor ingresado no es un numero: ");
+                }
+                let contador = 0;
+                for(let i = 1; i <= numero; i++){
+                    if(numero % i == 0){
+                        contador++;
+                    }
+                    if(contador > 2){
+                        break;
+                    }
+                }
+
+                if(contador == 2){
+                    return console.info(`El numero ${numero} es primo`);
+                }else{
+                    return console.info(`El numero ${numero} no es primo`);
+                }
+
+            }catch(error){
+                console.log(`Se ha producido el siguiente error ${error}`);
+            }
+        } 
+        
+        esPrimo(9);
+        //Numeros Primos del 1 al 100
+        // let contador = 0;
+        // for(let i = 1; i < 100; i++){
+        //     if(esPrimo(i) === true){
+        //         contador++;
+        //         console.log(contador+"," + i);
+                
+                
+        // }
+        
+        
+        //-------------------EJERCICIO 13-----------------------
+        const numerosPares = (numero)=>{
+            try{
+                if(typeof numero !== 'number'){
+                    throw new Error(`El argumento ${numero} no es un numero`);
+                }
+
+                (numero % 2 === 0) ? console.info(`El numero ${numero} Es par`) 
+                : console.info(`El numero ${numero} Es Impar`);
+            }catch(error){
+                console.error(`Se ha producido el siguiente error ${error}`);
+            }
+        }
+
+        numerosPares(3);
+        
+         //--------------------Ejercicio 14-----------------------
+        const convertirGradosAFahrenheit = (valor, simbolo) => {
+            if (typeof valor !== 'number')
+                return console.error('No ingresaste un numero');
+            if (simbolo !== 'C' && simbolo !== 'F')
+                return console.error('Caracteres no validos');
+
+            if (simbolo === 'c') {
+                let farenheit = valor * 9/5 + 32;
+                return console.info(`${farenheit} °F`);
+            } else {
+                let celsius = (valor-32)* 5/9;
+                return console.info(`${celsius} °C`);
+            }
+
+        }
+        //convertirGradosAFahrenheit(0, 'C');
