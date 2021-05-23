@@ -1,31 +1,18 @@
       //funcion que recibe un solo parametro, un numero binario o decimal.
-
-        //-------------------EJERCICIO 15------------------------
         
-         //-------------------EJERCICIO 15------------------------
+        //-------------------EJERCICIO 15------------------------
         const convertirDecimalYBinario = (valor, base) => {
 
             if (typeof valor !== 'number') {
                 return console.error(`El valor ingresado no es un numero`);
             }
 
-            if(typeof base !== 'number' || base !== 2){
+            if(typeof base !== 'number' || base !== 2 && base !==10){
                 return console.log(`El valor Ingresado como base no es valido.`)
 
             }
-            //comprobamos si el numero ingresado es decimal o binario
-            let b = valor.toString();
-            let esBinario;
-            for (let i = 0; i < b.length; i++) {
-                if (b[i] === '0' || b[i] === '1') {
-                    esBinario = true;
-                } else {
-                    esBinario = false;
-                    break;
-                }
-            }
-            if (esBinario && base === 2) {
-                //convierte un numero binario a decimal
+             //convierte un numero binario a decimal
+            if (base === 2) {
                 let array2 = [];
                 let arrayNum = Array.from(String(valor), Number);
                 for (let i = arrayNum.length - 1; i >= 0; i--) {
@@ -37,21 +24,21 @@
                 }
 
                 return console.info(`Numero Binario: ${valor} a Numero Decimal ${NumDecimal} base 10`);
-            } else {
+            } else if(base === 10){
                 //convertimos un numero decimal a binario.
-                console.log(valor);
                 let residuo = [];
-                while (valor > 0) {
-                    residuo.push(valor % 2);
-                    valor = Math.floor(valor / 2);
+                binario = valor;
+                while (binario > 0) {
+                    residuo.push(binario % 2);
+                    binario = Math.floor(binario / 2);
                 }
 
                 let numBinario = residuo.reverse().join();
-                return console.info(`Numero Decimal ${valor}: a Numero binario ${numBinario}`);
+                return console.info(`Numero Decimal ${valor}: a Numero binario ${numBinario} base 2`);
             }
 
         }
-        convertirDecimalYBinario(100,2);
+        convertirDecimalYBinario(4,10);
         
         //------------------EJERCICIO 16------------------
         const aplicarDescuento = (valor = 0, descuento) => {
