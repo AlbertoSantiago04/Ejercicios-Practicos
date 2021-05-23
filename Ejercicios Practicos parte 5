@@ -1,0 +1,84 @@
+      //funcion que recibe un solo parametro, un numero binario o decimal.
+
+        //-------------------EJERCICIO 15------------------------
+        
+        const convertirDecimalYBinario = (valor) => {
+
+            if (typeof valor !== 'number') {
+                return console.error(`El valor ingresado no es un numero`);
+            }
+            //comprobamos si el numero ingresado es decimal o binario
+            let b = valor.toString();
+            let esBinario;
+            for (let i = 0; i < b.length; i++) {
+                if (b[i] === '0' || b[i] === '1') {
+                    esBinario = true;
+                } else {
+                    esBinario = false;
+                    break;
+                }
+            }
+            if (esBinario) {
+                //convierte un numero binario a decimal
+                
+                let array2 = [];
+                let arrayNum = Array.from(String(valor), Number);
+                for (let i = arrayNum.length - 1; i >= 0; i--) {
+                    array2.push(Math.pow(2, i));
+                }
+                let NumDecimal = 0;
+                for (let j = 0; j < arrayNum.length; j++) {
+                    NumDecimal += arrayNum[j] * array2[j];
+                }
+
+                return console.info(`Numero Binario: ${valor} a Numero Decimal ${NumDecimal} base 10`);
+            } else {
+                //convertimos un numero decimal a binario.
+         
+                let residuo = [];
+                while (valor > 0) {
+                    residuo.push(valor % 2);
+                    valor = Math.floor(valor / 2);
+                }
+
+                let numBinario = residuo.reverse().join();
+                return console.info(`Numero Decimal ${valor}: a Numero binario ${numBinario}`);
+            }
+
+        }
+        convertirDecimalYBinario(100);
+        
+        //------------------EJERCICIO 16------------------
+        const aplicarDescuento = (valor = 0, descuento) => {
+            if (typeof valor !== 'number')
+                return console.error(`El valor ${valor} ingresado no es un numero1`);
+            if (typeof descuento !== 'number')
+                return console.log(`El valor ${descuento} ingresado no es un numero`);
+
+            let porcentaje = valor * descuento / 100;
+            let totalAPagar = valor - porcentaje;
+
+            return console.log(totalAPagar);
+
+        }
+
+        //aplicarDescuento(1000,20);
+        
+        //-----------------------EJERCICIO 17----------------------------
+        const fecha = (anio, mes, dia) => {
+            if (typeof anio !== 'number')
+                return console.error('EL anio no es un numero');
+            if (typeof mes != 'number' || mes <= 0 || mes > 12)
+                return console.error(`El mes no es un dato valido`);
+            if (typeof dia != 'number' || dia <= 0 || dia > 31)
+                return console.error(`El dia no es un dato Valido`);
+
+            let fechaAntigua = new Date(anio, mes, dia);
+            let fechaActual = new Date();
+            let calculoFecha = fechaActual.getFullYear() - fechaAntigua.getFullYear();
+            return console.info(calculoFecha);
+        }
+
+        //fecha(1984,4,23);
+        
+        
