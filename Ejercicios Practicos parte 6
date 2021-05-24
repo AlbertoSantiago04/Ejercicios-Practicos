@@ -1,0 +1,34 @@
+
+//---------------------EJERCICIO 18----------------------
+        const contadorVocalesYconsonantes = (cadena) => {
+            if (typeof cadena != 'string')
+                return console.error('La cadena ingresada no es un texto');
+            let vocales = ['a', 'e', 'i', 'o', 'u'];
+            let contadorVocales = 0;
+            let contadorConsonantes = 0;
+            let esVocal, espacio;
+            cadena = cadena.toLowerCase();
+            for (let j = 0; j < cadena.length; j++) {
+                for (let k = 0; k < vocales.length; k++) {
+                    if (cadena[j] === vocales[k]) {
+                        esVocal = true;
+                        contadorVocales++;
+                        break;
+                    } else if(cadena[j] === ' '){
+                        espacio = true;
+                        break;
+                    }else{
+                        esVocal = false;
+                    }
+                }
+
+                if (esVocal === false && espacio !== true) {
+                    contadorConsonantes++;
+                }
+                espacio = false;
+            }
+
+            return console.info(`NumVocales ${contadorVocales}: numConsonantes ${contadorConsonantes}`);
+
+        }
+        contadorVocalesYconsonantes('contador vacales');
