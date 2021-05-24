@@ -3,7 +3,7 @@
         const contadorVocalesYconsonantes = (cadena) => {
             if (typeof cadena != 'string')
                 return console.error('La cadena ingresada no es un texto');
-            let vocales = ['a', 'e', 'i', 'o', 'u'];
+            let vocales = ['a', 'e', 'i', 'o', 'u','á', 'é', 'í', 'ó', 'ú'];
             let contadorVocales = 0;
             let contadorConsonantes = 0;
             let esVocal, espacio;
