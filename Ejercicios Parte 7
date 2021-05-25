@@ -1,0 +1,63 @@
+//---------------------EJERCICIO 21---------------------------  
+        const potenciaDeNumeros = (array) => {
+            if (!array) return console.error(`No ingresaste un arreglo`);
+            if (!(array instanceof Array)) return console.error(`No ingresaste un valor del tipo Array`);
+
+            for (let i = 0; i < array.length; i++) {
+                array[i] = Math.pow(array[i], 2);
+            }
+
+            return console.info(`${array}`);
+
+        }
+         potenciaDeNumeros([1, 4, 5]);
+  
+  
+  //---------------------EJERCICIO 22---------------
+        const evaluarArreglo = (array) => {
+            if (!array) return console.error(`No ingresaste un arreglo`);
+            if (!(array instanceof Array))
+                return console.error(`El tipo de dato ingresado no es un arreglo`);
+
+            let valorMayor = 0;
+            let menorValor = array[0];
+
+
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] > valorMayor) {
+                    valorMayor = array[i];
+                }
+                if (array[i] < menorValor) {
+                    menorValor = array[i];
+                }
+            }
+
+            return console.info(`ValorMayor=${valorMayor} : ValorMenor=${menorValor}`);
+        }
+
+        evaluarArreglo([8, 5, 1, 89, 4, 0, 78, 64, 47]);
+        
+        
+        //-----------------------EJERCICIO 23------------------------
+        const paresInpares = (array) => {
+            if (!array) return console.error(`No ingresaste un arreglo`);
+            if (!(array instanceof Array))
+                return console.error(`El valor ingresado no es un arreglo`);
+
+            let pares = [];
+            let impares = []
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] % 2 === 0) {
+                    pares.push(array[i]);
+                } else {
+                    impares.push(array[i]);
+                }
+            }
+
+            return console.info({ Pares: pares, Impares: impares });
+        }
+    
+        paresInpares([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
+
+        
+  
